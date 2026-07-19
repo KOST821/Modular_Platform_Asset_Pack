@@ -65,7 +65,7 @@ func take_damage(_damage: float) -> void:
 
 When you click any spawned platform, the **Inspector** panel displays all configuration options.
 
-### 1. Base Platform ![tilemap](https://raw.githubusercontent.com/KOST821/asset-terrain-pack/main/platform-asset-pack/addons/terrain_kit/terrain_assets/base_platform/tilemap.svg)
+### 1. Base Platform <img src="https://raw.githubusercontent.com/KOST821/asset-terrain-pack/main/platform-asset-pack/addons/terrain_kit/terrain_assets/base_platform/tilemap.svg" width="28" height="28" align="center" style="margin-left: 8px; margin-right: 0;">
 
 **What it is:** Standard, unmoving ground, walls, and ceilings.
 
@@ -79,7 +79,7 @@ When you click any spawned platform, the **Inspector** panel displays all config
 
 ---
 
-### 2. Moving Platform ![moving_platform](https://raw.githubusercontent.com/KOST821/asset-terrain-pack/main/platform-asset-pack/addons/terrain_kit/terrain_assets/moving_platform/moving_platform.svg)
+### 2. Moving Platform <img src="https://raw.githubusercontent.com/KOST821/asset-terrain-pack/main/platform-asset-pack/addons/terrain_kit/terrain_assets/moving_platform/moving_platform.svg" width="28" height="28" align="center" style="margin-left: 8px; margin-right: 0;">
 
 **What it is:** A platform that patrols along a custom-drawn track.
 
@@ -98,7 +98,7 @@ When you click any spawned platform, the **Inspector** panel displays all config
 
 ---
 
-### 3. Break Platform ![skull](https://raw.githubusercontent.com/KOST821/asset-terrain-pack/main/platform-asset-pack/addons/terrain_kit/terrain_assets/brake_platform/skull.svg)
+### 3. Break Platform <img src="https://raw.githubusercontent.com/KOST821/asset-terrain-pack/main/platform-asset-pack/addons/terrain_kit/terrain_assets/brake_platform/skull.svg" width="28" height="28" align="center" style="margin-left: 8px; margin-right: 0;">
 
 **What it is:** A crumbling floor that drops the player.
 
@@ -109,7 +109,7 @@ When you click any spawned platform, the **Inspector** panel displays all config
 
 ---
 
-### 4. One-Way Platform ![motion_vector](https://raw.githubusercontent.com/KOST821/asset-terrain-pack/main/platform-asset-pack/addons/terrain_kit/terrain_assets/one_way_collision_platform/motion_vector.svg)
+### 4. One-Way Platform <img src="https://raw.githubusercontent.com/KOST821/asset-terrain-pack/main/platform-asset-pack/addons/terrain_kit/terrain_assets/one_way_collision_platform/motion_vector.svg" width="28" height="28" align="center" style="margin-left: 8px; margin-right: 0;">
 
 **What it is:** Jump up through from underneath, but land solidly on top.
 
@@ -124,7 +124,7 @@ When you click any spawned platform, the **Inspector** panel displays all config
 
 ---
 
-### 5. Props & Hazards ![tree](https://raw.githubusercontent.com/KOST821/asset-terrain-pack/main/platform-asset-pack/addons/terrain_kit/terrain_assets/props%26hazards/tree.svg)
+### 5. Props & Hazards <img src="https://raw.githubusercontent.com/KOST821/asset-terrain-pack/main/platform-asset-pack/addons/terrain_kit/terrain_assets/props%26hazards/tree.svg" width="28" height="28" align="center" style="margin-left: 8px; margin-right: 0;">
 
 **What it is:** Decorative physics objects (trees, rocks) or active hazards (spikes, fire traps).
 

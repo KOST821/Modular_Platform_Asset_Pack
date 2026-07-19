@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://c8a242f7ux6ph"]
+
+[ext_resource type="Script" uid="uid://dfjj7v0n8xroa" path="res://addons/terrain_kit/terrain_assets/props/props.gd" id="1_bh244"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hhmvh"]
+resource_local_to_scene = true
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l57yp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x5rlr"]
+size = Vector2(30, 3)
+
+[node name="Props" type="StaticBody2D" unique_id=824924944]
+physics_material_override = SubResource("PhysicsMaterial_hhmvh")
+script = ExtResource("1_bh244")
+is_attacking = true
+damage = null
+activate_time = null
+active_time = null
+anim_texture = SubResource("SpriteFrames_l57yp")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=443066496]
+
+[node name="AnimatedIcon" type="AnimatedSprite2D" parent="." unique_id=684691447]
+visible = false
+sprite_frames = SubResource("SpriteFrames_l57yp")
+
+[node name="PropsCollision" type="CollisionShape2D" parent="." unique_id=164702753]
+debug_color = Color(0, 0, 0, 0.41960785)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=570993792]
+
+[node name="attack" type="CollisionShape2D" parent="Area2D" unique_id=1450715542]
+position = Vector2(0, -17.5)
+shape = SubResource("RectangleShape2D_x5rlr")
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_attack_dealt"]

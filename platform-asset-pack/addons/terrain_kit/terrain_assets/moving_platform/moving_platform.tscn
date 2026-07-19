@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bw6503wjxmjgq"]
+
+[ext_resource type="Script" uid="uid://cok34g66fnvpe" path="res://addons/terrain_kit/terrain_assets/moving_platform/moving_platform.gd" id="1_s16q0"]
+
+[sub_resource type="Curve2D" id="Curve2D_5p6vy"]
+resource_local_to_scene = true
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q06lf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y32ns"]
+size = Vector2(32, 32)
+
+[node name="moving_platform" type="Path2D" unique_id=1439904874]
+curve = SubResource("Curve2D_5p6vy")
+script = ExtResource("1_s16q0")
+texture = SubResource("SpriteFrames_q06lf")
+
+[node name="PathShower" type="PathFollow2D" parent="." unique_id=1080034402]
+rotates = false
+loop = false
+
+[node name="PosisionTransferer" type="RemoteTransform2D" parent="PathShower" unique_id=987134880]
+remote_path = NodePath("../../Standing_Pltf")
+update_rotation = false
+update_scale = false
+
+[node name="Standing_Pltf" type="AnimatableBody2D" parent="." unique_id=952034810]
+
+[node name="PlatformsCollision" type="CollisionShape2D" parent="Standing_Pltf" unique_id=443111954]
+shape = SubResource("RectangleShape2D_y32ns")
+
+[node name="Icon" type="AnimatedSprite2D" parent="Standing_Pltf" unique_id=422435755]
+sprite_frames = SubResource("SpriteFrames_q06lf")

@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cxgmg1fpl0ijm"]
+
+[ext_resource type="Script" uid="uid://sc778b462uy6" path="res://addons/terrain_kit/terrain_assets/brake_platform/break_platform.gd" id="1_ycfol"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5p6vy"]
+resource_local_to_scene = true
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ssxn5"]
+resource_local_to_scene = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14niy"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5p6vy"]
+size = Vector2(30, 3)
+
+[node name="Break_Platform" type="StaticBody2D" unique_id=132485514]
+physics_material_override = SubResource("PhysicsMaterial_5p6vy")
+script = ExtResource("1_ycfol")
+texture = SubResource("SpriteFrames_ssxn5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1079520438]
+shape = SubResource("RectangleShape2D_14niy")
+one_way_collision_direction = Vector2(0, -1)
+debug_color = Color(0, 0, 0, 0.41960785)
+
+[node name="Icon" type="AnimatedSprite2D" parent="." unique_id=635908687]
+texture_repeat = 2
+sprite_frames = SubResource("SpriteFrames_ssxn5")
+frame_progress = 0.102909215
+
+[node name="Area2D" type="Area2D" parent="." unique_id=569750716]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1663831213]
+position = Vector2(0, -17.5)
+shape = SubResource("RectangleShape2D_5p6vy")
+debug_color = Color(0, 0.6, 0.69803923, 0)

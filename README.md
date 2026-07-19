@@ -1,16 +1,47 @@
 # 🗺️ Terrain Kit for Godot 4
-Terrain Kit is a custom-built, drag-and-drop Godot plugin designed for rapid level design. It provides a suite of smart platforms, hazards, and props that require absolutely zero coding from the level designer. Everything is controlled dynamically through the Godot Inspector.
 
-## ⚠️ The Golden Rule
-NEVER use the Godot Scale Tool (the resizing handles or the S key) on any platform.
-Scaling physics bodies will permanently break the game's physics engine. If you need to make a platform larger, use the texture_width and texture_height sliders in the Inspector. The platform will automatically tile its artwork and resize its collision box safely.
+Terrain Kit is a custom-built, drag-and-drop Godot plugin designed for rapid level design. It provides a suite of smart platforms, hazards, and props that require absolutely zero coding from the level designer.
 
-## ⚙️ Setup
-For hazards to work, your player character must have a script that extends `Area2D` with the `class_name` set to `HurtBox` and a `take_damage` function. 
+## 📋 Table of Contents
 
-Create a new script, attach it to an `Area2D` on your player, and copy-paste the following:
+- [Quick Start](#quick-start)
+- [Features](#features)
+- [Prerequisites & Setup](#prerequisites--setup)
+- [How to Spawn Platforms](#how-to-spawn-platforms)
+- [Platform Guide](#platform-guide)
+- [Props & Hazards](#props--hazards)
+- [The Golden Rule](#the-golden-rule)
+- [Troubleshooting](#troubleshooting)
 
-```
+## ⚡ Quick Start
+
+1. **Add the plugin** to your Godot project's `addons/` folder
+2. **Enable it** in Project → Project Settings → Plugins
+3. **Set up HurtBox** (see [Prerequisites](#prerequisites--setup))
+4. **Open the Terrain Kit dock** and start spawning platforms!
+
+## ✨ Features
+
+- 🏗️ **5 Smart Platform Types** – Base, Moving, Breaking, One-Way, and more
+- 🎨 **Drag-and-Drop Editor** – No file digging required
+- ⚙️ **Inspector-Driven Configuration** – Adjust all settings in real-time
+- 🎭 **Props & Hazards** – Decorative objects and attack hitboxes
+- 🧮 **Auto-Physics** – CollisionShape2D handling built-in
+- 🎬 **Animation Support** – Still or looping animations
+- 🎛️ **Movement Tracks** – Custom patrol paths for moving platforms
+- 🏃 **Physics Feel Control** – Adjust friction and bounce per platform
+
+---
+
+## Prerequisites & Setup
+
+### HurtBox Requirement
+
+For hazards to work, your player character **must** have an Area2D-based script with the `HurtBox` class name and a `take_damage()` function.
+
+**Create a new script and attach it to an Area2D on your player:**
+
+```gdscript
 extends Area2D
 class_name HurtBox
 
@@ -18,63 +49,140 @@ func take_damage(_damage: float) -> void:
     pass
 ```
 
+---
+
 ## 🛠️ How to Spawn Platforms
-I have built a custom control panel directly into the editor so you never have to go digging through files.
 
-In your Scene Tree, click the folder or node where you want the new platform to go (e.g., click your LevelGeometry folder).
+1. In your **Scene Tree**, click the folder where you want the platform (e.g., `LevelGeometry`)
+2. Open the **Terrain Kit dock** (usually on the right side of the Godot editor)
+3. Click the button for the platform type you want
+4. The platform instantly spawns, perfectly organized in your selected folder
+5. Configure it using the **Inspector** panel on the right
 
-Go to the Terrain Kit dock.
+---
 
-Click the button for the platform you want. It will instantly spawn into your level, perfectly organized inside the folder you selected.
+## 🧱 Platform Guide
 
-## 🧱 The Platform Guide  <img src="addons/terrain_kit/terrain_assets/base_platform/tilemap.svg" height="40" align="center">
-When you click on any spawned platform, look at the Inspector panel on the right side of your screen to configure it.
+When you click any spawned platform, the **Inspector** panel displays all configuration options.
 
-### 1. Base Platform
-What it is: Standard, unmoving ground, walls, and ceilings.
+### 1. Base Platform <img src="addons/terrain_kit/terrain_assets/base_platform/tilemap.svg" height="32" align="center" style="margin: 0 8px;">
 
-How to size it: Type your desired size into texture_width and texture_height. The art will seamlessly repeat to fill the space.
+**What it is:** Standard, unmoving ground, walls, and ceilings.
 
-Platform Feel: You can change how the surface reacts to the player. Lower the Friction slider to 0.0 to create slippery ice levels, or raise the Bounce slider to create trampoline surfaces.
+**How to size it:**
+- Type your desired size into `texture_width` and `texture_height`
+- The art will seamlessly repeat to fill the space
 
-### 2. Moving Platform
-What it is: A platform that patrols along a custom-drawn track.
+**Platform Feel:**
+- **Friction** – Lower to 0.0 for slippery ice levels
+- **Bounce** – Raise for trampoline-like surfaces
 
-How to draw the track: Click the platform in your Scene Tree. A new toolbar will appear at the top center of the Godot workspace. Click the Add Point tool (a pen with a green plus icon) and click in the 2D viewport to draw the exact path it should follow.
+---
 
-Movement Settings: Set the speed in the Inspector.
+### 2. Moving Platform <img src="addons/terrain_kit/terrain_assets/moving_platform/moving_platform.svg" height="32" align="center" style="margin: 0 8px;">
 
-Acceleration: If you want smooth, AAA-style pacing, check the acc_acceleration_enable box. You can then tweak travel_time (how long the trip takes) and wait_time (how long it pauses before reversing).
+**What it is:** A platform that patrols along a custom-drawn track.
 
-### 3. Break Platform
-What it is: A crumbling floor that drops the player.
+**How to draw the track:**
+1. Click the platform in your Scene Tree
+2. A new toolbar appears at the top center of the workspace
+3. Click the **Add Point tool** (pen with green plus icon)
+4. Click in the viewport to place waypoints
+5. The platform will patrol between them
 
-The "Doormat" Rule: This platform is smart. It will only break if you step on top of it. If you hit your head on the bottom, or slide down the side walls, it remains perfectly solid.
+**Movement Settings:**
+- **speed** – How fast the platform travels
+- **acc_acceleration_enable** – Check for smooth, AAA-style pacing
+- **travel_time** – How long the trip takes
+- **wait_time** – How long it pauses before reversing direction
 
-Timing: Use the time_to_break slider to dictate exactly how many seconds the player has to jump off before the platform shatters.
+---
 
-### 4. One-Way Platform
-What it is: A platform you can jump up through from underneath, but land solidly on top of.
+### 3. Break Platform <img src="addons/terrain_kit/terrain_assets/brake_platform/skull.svg" height="32" align="center" style="margin: 0 8px;">
 
-Directional Settings: By default, it acts like a floor. If you want to make a special wall that the player can dash through from the left but not the right, change the way_pass_platform dropdown to WEST, EAST, or SOUTH.
+**What it is:** A crumbling floor that drops the player.
 
-Angled Slopes: If you are building a hill, check circle_enable and type your slope angle into circle_degrees.
+**The "Doormat" Rule:** This platform is smart—it only breaks when stepped on from the top. Hit it from the bottom or slide down the side and it stays solid.
 
-### 5. Props & Hazards
-What it is: Decorative physics objects (trees, rocks) or active hazards (spikes, fire traps).
+**Timing:**
+- Use `time_to_break` to set how many seconds the player has to jump off before the platform shatters
 
-Visuals: Use the Type dropdown to switch between "Still" (a single image) and "Animated" (a looping animation like a torch).
+---
 
-Auto-Collisions: Add a CollisionShape2D node to it. Choose a Box, Capsule, or Circle shape. Change the dimensions in the Inspector, and the prop will automatically do the math to snap the collision box perfectly around your art.
+### 4. One-Way Platform <img src="addons/terrain_kit/terrain_assets/one_way_collision_platform/motion_vector.svg" height="32" align="center" style="margin: 0 8px;">
 
-Turning it into a Hazard:
+**What it is:** Jump up through from underneath, but land solidly on top.
 
-Check the is_attacking box to enable the damage hitbox.
+**Directional Settings:**
+- By default, acts as a floor
+- Change `way_pass_platform` dropdown to configure directional pass-through (e.g., "WE" = pass West-East)
 
-Use the Direction settings to snap the attack hitbox to the NORTH, SOUTH, EAST, or WEST of the prop.
+**Angled Slopes:**
+- Check `circle_enable`
+- Set `circle_degrees` to your desired slope angle
+- Perfect for building hills
 
-Adjust dir_attack_reach to make the hazard stick out further.
+---
 
-Note on Damage: For the hazard to hurt the player, the player must have an Area2D node attached to them with a script class named HurtBox that contains a take_damage(amount) function.
+### 5. Props & Hazards <img src="addons/terrain_kit/terrain_assets/props&hazards/tree.svg" height="32" align="center" style="margin: 0 8px;">
 
-Hazard Timers: Hazards can turn on and off automatically! Adjust the activate_time (how long it stays safe) and active_time (how long it deals damage).
+**What it is:** Decorative physics objects (trees, rocks) or active hazards (spikes, fire traps).
+
+**Visuals:**
+- **Type** dropdown: Choose "Still" (single image) or "Animated" (looping animation like a torch)
+
+**Auto-Collisions:**
+1. Add a **CollisionShape2D** node to the prop
+2. Choose a shape: Box, Capsule, or Circle
+3. Adjust dimensions in the Inspector
+4. The prop automatically snaps the collision box
+
+**Turning it into a Hazard:**
+
+- Check **is_attacking** to enable the damage hitbox
+- Use **Direction settings** to snap the attack hitbox to NORTH, SOUTH, EAST, or WEST
+- Adjust **dir_attack_reach** to extend the hazard further
+
+**Note on Damage:** The hazard requires the player to have an Area2D with a `HurtBox` class that contains a `take_damage(amount)` function.
+
+**Hazard Timers:**
+- **activate_time** – How long it stays safe before dealing damage
+- **active_time** – How long it deals damage before going safe again
+
+---
+
+## ⚠️ The Golden Rule
+
+### NEVER use the Godot Scale Tool on any platform.
+
+The resizing handles or the **S key** will **permanently break** the game's physics engine.
+
+**If you need to make a platform larger:**
+1. Use the `texture_width` and `texture_height` sliders in the Inspector
+2. The platform will automatically scale with the correct physics
+
+---
+
+## 🐛 Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| **Physics feels broken or wobbly** | Did you use the Godot Scale Tool? Use `texture_width`/`texture_height` instead |
+| **Hazards don't hurt the player** | Make sure the player has an Area2D with a `HurtBox` class and `take_damage()` function |
+| **Platforms not spawning** | Ensure the Terrain Kit plugin is enabled in Project Settings → Plugins |
+| **Moving platform won't move** | Check that you've drawn at least 2 waypoints using the Add Point tool |
+| **One-Way platform doesn't work** | Verify `way_pass_platform` is set to the correct direction |
+| **Props falling through the ground** | Add a CollisionShape2D to the prop and set an appropriate shape |
+
+---
+
+## 💡 Tips & Best Practices
+
+- **Performance:** Limit the number of physics bodies; static platforms are more efficient than moving ones
+- **Visual Consistency:** Use the same platform type for similar surfaces to maintain aesthetic cohesion
+- **Animation Smoothness:** Enable `acc_acceleration_enable` on moving platforms for fluid motion
+- **Level Testing:** Playtest frequently to catch physics issues early
+
+---
+
+**Made with ❤️ for Godot 4**

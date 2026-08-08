@@ -6,6 +6,7 @@
 resource_local_to_scene = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_37lj7"]
+resource_local_to_scene = true
 size = Vector2(32, 32)
 
 [node name="basic_platform" type="StaticBody2D" unique_id=507829767]

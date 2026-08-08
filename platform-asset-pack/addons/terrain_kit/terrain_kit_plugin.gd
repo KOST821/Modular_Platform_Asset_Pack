@@ -9,11 +9,11 @@ func _enter_tree() -> void:
 	dock.name = "Terrain Kit"
 	
 	# 2. Create the buttons
-	_create_button("Add Base Platform", "res://addons/terrain_kit/terrain_assets/base_platform/basic_platform.tscn")
-	_create_button("Add Moving Platform", "res://addons/terrain_kit/terrain_assets/moving_platform/moving_platform.tscn")
-	_create_button("Add Break Platform", "res://addons/terrain_kit/terrain_assets/brake_platform/break_platform.tscn")
-	_create_button("Add One-Way Platform", "res://addons/terrain_kit/terrain_assets/one_way_collision_platform/one_way_platform.tscn")
-	_create_button("Add Prop or Hazard", "res://addons/terrain_kit/terrain_assets/props/props.tscn")
+	_create_button("Add Base Platform", "res://addons/terrain_kit/terrain_assets/base_platform/basic_platform.tscn", "res://addons/terrain_kit/terrain_assets/base_platform/tilemap.svg")
+	_create_button("Add Moving Platform", "res://addons/terrain_kit/terrain_assets/moving_platform/moving_platform.tscn", "res://addons/terrain_kit/terrain_assets/moving_platform/moving_platform.svg")
+	_create_button("Add Break Platform", "res://addons/terrain_kit/terrain_assets/break_platform/break_platform.tscn", "res://addons/terrain_kit/terrain_assets/break_platform/skull.svg")
+	_create_button("Add One-Way Platform", "res://addons/terrain_kit/terrain_assets/one_way_collision_platform/one_way_platform.tscn", "res://addons/terrain_kit/terrain_assets/one_way_collision_platform/motion_vector.svg")
+	_create_button("Add Prop or Hazard", "res://addons/terrain_kit/terrain_assets/props_or_hazards/props_or_hazards.tscn", "res://addons/terrain_kit/terrain_assets/props_or_hazards/tree.svg")
 	
 	# 3. Add the UI to the Godot Editor's left panel
 	add_control_to_dock(EditorPlugin.DOCK_SLOT_LEFT_UL, dock)
@@ -24,10 +24,17 @@ func _exit_tree() -> void:
 		remove_control_from_docks(dock)
 		dock.queue_free()
 
-func _create_button(button_text: String, scene_path: String) -> void:
+func _create_button(button_text: String, scene_path: String, icon_path: String = "") -> void:
 	var btn = Button.new()
-	btn.text = button_text
-	# Connect the button press to the instancing function, passing the specific scene path
+	btn.text = "  " + button_text # Added spacing so text doesn't hug the icon
+	
+	if icon_path != "":
+		btn.icon = load(icon_path)
+		btn.expand_icon = true
+		# Keep the icon at a reasonable size, like 24x24 pixels
+		btn.custom_minimum_size = Vector2(0, 32) 
+		
+	# Connect the button press to the instancing function
 	btn.pressed.connect(_spawn_scene.bind(scene_path))
 	dock.add_child(btn)
 

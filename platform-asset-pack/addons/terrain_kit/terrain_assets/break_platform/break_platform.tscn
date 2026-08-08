@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cxgmg1fpl0ijm"]
 
-[ext_resource type="Script" uid="uid://sc778b462uy6" path="res://addons/terrain_kit/terrain_assets/brake_platform/break_platform.gd" id="1_ycfol"]
+[ext_resource type="Script" uid="uid://sc778b462uy6" path="res://addons/terrain_kit/terrain_assets/break_platform/break_platform.gd" id="1_6732w"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5p6vy"]
 resource_local_to_scene = true
@@ -9,14 +9,16 @@ resource_local_to_scene = true
 resource_local_to_scene = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14niy"]
+resource_local_to_scene = true
 size = Vector2(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5p6vy"]
+resource_local_to_scene = true
 size = Vector2(30, 3)
 
 [node name="Break_Platform" type="StaticBody2D" unique_id=132485514]
 physics_material_override = SubResource("PhysicsMaterial_5p6vy")
-script = ExtResource("1_ycfol")
+script = ExtResource("1_6732w")
 texture = SubResource("SpriteFrames_ssxn5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1079520438]

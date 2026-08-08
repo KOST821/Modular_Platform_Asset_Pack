@@ -1,6 +1,8 @@
-@icon("res://addons/terrain_kit/terrain_assets/brake_platform/skull.svg")
+@icon("res://addons/terrain_kit/terrain_assets/break_platform/skull.svg")
 @tool
 extends StaticBody2D
+
+const platform_uid11299087490986: Variant = null
 
 @onready var sprite: AnimatedSprite2D = $Icon
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
@@ -11,58 +13,69 @@ extends StaticBody2D
 @export var texture: SpriteFrames = SpriteFrames.new():
 	set(value):
 		texture = value
-		_update_visuals()
+		if is_node_ready():
+			_update_visuals()
 
 @export_range(1, 128, 1, "or_greater") var texture_width: int = 32:
 	set(value):
 		texture_width = max(1, value)
-		_update_visuals()
+		if is_node_ready():
+			_update_visuals()
 
 @export_range(1, 128, 1, "or_greater") var texture_height: int = 32:
 	set(value):
 		texture_height = max(1, value)
-		_update_visuals()
+		if is_node_ready():
+			_update_visuals()
 
 @export_group("One Way Collision", "col_")
 @export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var col_enable: bool = false:
 	set(value):
 		col_enable = value
-		_update_visuals()
+		if is_node_ready():
+			_update_visuals()
 @export_enum('NORTH','WEST','SOUTH','EAST') var col_way_pass_platform:int:
 	set(value):
 		col_way_pass_platform = value
-		_update_visuals()
+		if is_node_ready():
+			_update_visuals()
 		
 @export_subgroup("Circle", "circle_")
 @export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var circle_enable: bool = false:
 	set(value):
 		circle_enable = value
-		_update_visuals()
+		if is_node_ready():
+			_update_visuals()
 @export var circle_degrees:float = 0:
 	set(value):
 		circle_degrees = value
-		_update_visuals()
+		if is_node_ready():
+			_update_visuals()
 
 @export_group('Platform Feel')
 @export var rough: bool = false:
 	set(value):
 		rough = value
-		_update_physics()
+		if is_node_ready():
+			_update_physics()
 
 @export_range(0.0, 1.0) var friction: float = 1.0:
 	set(value):
 		friction = value
-		_update_physics()
+		if is_node_ready():
+			_update_physics()
 
 @export_range(0.0, 1.0) var bounce: float = 0.0:
 	set(value):
 		bounce = value
-		_update_physics()
+		if is_node_ready():
+			_update_physics()
 
 @export var absorbent: bool = false:
 	set(value):
 		absorbent = value
-		_update_physics()
+		if is_node_ready():
+			_update_physics()
 
 @export_range(0.1, 10.0, 0.1, "or_greater") var time_to_break: float = 1.0
 
@@ -81,6 +94,7 @@ func _update_visuals() -> void:
 		return
 		
 	sprite.sprite_frames = texture
+	collision_shape.shape.resource_local_to_scene = true
 	collision_shape.one_way_collision = col_enable
 	if circle_enable:
 		var rad = deg_to_rad(-circle_degrees)
@@ -101,6 +115,8 @@ func _update_visuals() -> void:
 		
 	if area_cs.shape == null:
 		area_cs.shape = RectangleShape2D.new()
+	
+	area_cs.shape.resource_local_to_scene = true
 	
 	var trigger_height:float = 3.0
 	collision_shape.shape.size = Vector2(texture_width, texture_height)
@@ -127,6 +143,8 @@ func start_braking(_body: Node2D) -> void:
 	
 	# Cleaner way to wait without manually creating/adding Timer nodes
 	await get_tree().create_timer(time_to_break).timeout
+	if not is_instance_valid(self) or not is_instance_valid(sprite): 
+		return
 	
 	sprite.play("default")
 	await sprite.animation_finished

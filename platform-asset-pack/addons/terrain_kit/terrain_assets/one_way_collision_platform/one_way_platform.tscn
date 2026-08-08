@@ -3,9 +3,10 @@
 [ext_resource type="Script" uid="uid://0ndc3oej451y" path="res://addons/terrain_kit/terrain_assets/one_way_collision_platform/one_way_platform.gd" id="1_wr1nt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwifq"]
+resource_local_to_scene = true
 size = Vector2(32, 32)
 
-[node name="One_way_collision_platform" type="AnimatableBody2D" unique_id=425222333]
+[node name="One_way_collision_platform" type="StaticBody2D" unique_id=412459972]
 script = ExtResource("1_wr1nt")
 
 [node name="PlatformsCollision" type="CollisionShape2D" parent="." unique_id=1657559692]

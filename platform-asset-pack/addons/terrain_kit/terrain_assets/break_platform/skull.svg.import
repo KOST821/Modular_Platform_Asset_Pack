@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2pah20qhfn0k"
-path="res://.godot/imported/skull.svg-958bb020629c73d2602e97fe374349a4.ctex"
+path="res://.godot/imported/skull.svg-e59d34cbd9dfe4441238f6b0765d95f4.ctex"
 metadata={
 "has_editor_variant": true,
 "vram_texture": false
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/terrain_kit/terrain_assets/brake_platform/skull.svg"
-dest_files=["res://.godot/imported/skull.svg-958bb020629c73d2602e97fe374349a4.ctex"]
+source_file="res://addons/terrain_kit/terrain_assets/break_platform/skull.svg"
+dest_files=["res://.godot/imported/skull.svg-e59d34cbd9dfe4441238f6b0765d95f4.ctex"]
 
 [params]
 

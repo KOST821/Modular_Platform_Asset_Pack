@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcyhm7y82lmvw"
-path="res://.godot/imported/grass.svg-6a59ceebd00a04218463a4e20b9dc581.ctex"
+uid="uid://5x1gs2jclvch"
+path="res://.godot/imported/lever.svg-6126a0735cb4290452af8a43e4c187e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/terrain_kit/terrain_assets/base_platform/grass.svg"
-dest_files=["res://.godot/imported/grass.svg-6a59ceebd00a04218463a4e20b9dc581.ctex"]
+source_file="res://addons/terrain_kit/terrain_assets/Lever/lever.svg"
+dest_files=["res://.godot/imported/lever.svg-6126a0735cb4290452af8a43e4c187e2.ctex"]
 
 [params]
 

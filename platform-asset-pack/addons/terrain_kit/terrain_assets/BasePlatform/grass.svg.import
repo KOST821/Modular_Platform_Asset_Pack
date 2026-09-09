@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://n11264tnbg8u"
-path="res://.godot/imported/bone_fracture.svg-8593c4f85a19e6aa59c0ca9822421a4c.ctex"
+uid="uid://bcyhm7y82lmvw"
+path="res://.godot/imported/grass.svg-d51403585b73c073d7e9bf2d71b792f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/terrain_kit/terrain_assets/break_platform/bone_fracture.svg"
-dest_files=["res://.godot/imported/bone_fracture.svg-8593c4f85a19e6aa59c0ca9822421a4c.ctex"]
+source_file="res://addons/terrain_kit/terrain_assets/BasePlatform/grass.svg"
+dest_files=["res://.godot/imported/grass.svg-d51403585b73c073d7e9bf2d71b792f7.ctex"]
 
 [params]
 

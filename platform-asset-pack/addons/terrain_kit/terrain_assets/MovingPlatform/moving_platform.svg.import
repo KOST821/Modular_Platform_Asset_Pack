@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bcmwsc2euqk5d"
-path="res://.godot/imported/moving_platform.svg-f19feb24b0e5f12d6128a71dbd01c95f.ctex"
+path="res://.godot/imported/moving_platform.svg-1fe2b06cce710cd343641346962a161e.ctex"
 metadata={
 "has_editor_variant": true,
 "vram_texture": false
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/terrain_kit/terrain_assets/moving_platform/moving_platform.svg"
-dest_files=["res://.godot/imported/moving_platform.svg-f19feb24b0e5f12d6128a71dbd01c95f.ctex"]
+source_file="res://addons/terrain_kit/terrain_assets/MovingPlatform/moving_platform.svg"
+dest_files=["res://.godot/imported/moving_platform.svg-1fe2b06cce710cd343641346962a161e.ctex"]
 
 [params]
 

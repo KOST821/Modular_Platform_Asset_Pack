@@ -1,8 +1,9 @@
 @tool
+@icon("lever.svg")
 extends Area2D
 class_name Lever
 
-enum WAY {LEFTtoRIGHT, RIGHTtoLEFT}
+enum WAY {LEFT_TO_RIGHT, RIGHT_TO_LEFT}
 
 ## Emitted when pressed.
 signal pressed(lever:Node2D)

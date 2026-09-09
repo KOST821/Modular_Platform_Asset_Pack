@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://boxcy5m6k1suf"]
 
-[ext_resource type="Script" uid="uid://bbe0i0wdbmo7r" path="res://addons/terrain_kit/terrain_assets/moving_platform/moving_platform.gd" id="1_q06lf"]
+[ext_resource type="Script" uid="uid://bbe0i0wdbmo7r" path="res://addons/terrain_kit/terrain_assets/MovingPlatform/MovingPlatform.gd" id="1_q06lf"]
 [ext_resource type="Script" uid="uid://b205cvdqvwkkc" path="res://addons/terrain_kit/hitbox_component.gd" id="2_hrpga"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n1qr4"]

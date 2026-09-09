@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://diub5mlygnsif"]
+
+[ext_resource type="Script" uid="uid://ggnprterscj2" path="res://addons/terrain_kit/terrain_assets/PropOrHazard/PropOrHazard.gd" id="1_m1xp6"]
+[ext_resource type="Texture2D" uid="uid://btt4o11n3wkra" path="res://addons/terrain_kit/terrain_assets/PropOrHazard/tree.svg" id="2_wo5ex"]
+[ext_resource type="Script" uid="uid://b205cvdqvwkkc" path="res://addons/terrain_kit/hitbox_component.gd" id="3_qdq81"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5p6vy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5p6vy"]
+radius = 13.0
+
+[node name="PropOrHazard" type="StaticBody2D" unique_id=238295592 node_paths=PackedStringArray("sprite_still", "collision_shape")]
+script = ExtResource("1_m1xp6")
+sprite_still = NodePath("Sprite2D")
+collision_shape = NodePath("CollisionShape2D")
+metadata/_custom_type_script = "uid://ggnprterscj2"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=996759236]
+texture = ExtResource("2_wo5ex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=383105573]
+shape = SubResource("RectangleShape2D_5p6vy")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1992364255 node_paths=PackedStringArray("user")]
+script = ExtResource("3_qdq81")
+user = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=167902952]
+shape = SubResource("CircleShape2D_5p6vy")
+debug_color = Color(0.98963255, 0.100360714, 0, 0.41960785)

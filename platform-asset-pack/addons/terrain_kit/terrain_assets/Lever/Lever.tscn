@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cjcf8655lb6rm"]
+
+[ext_resource type="Script" uid="uid://b2nkdv2pvgo2q" path="res://addons/terrain_kit/terrain_assets/Lever/Lever.gd" id="1_dh1a1"]
+[ext_resource type="Texture2D" uid="uid://5x1gs2jclvch" path="res://addons/terrain_kit/terrain_assets/Lever/lever.svg" id="2_s625s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5p6vy"]
+size = Vector2(3, 16)
+
+[node name="Lever" type="Area2D" unique_id=1138912896 node_paths=PackedStringArray("sprite", "collision")]
+script = ExtResource("1_dh1a1")
+sprite = NodePath("Sprite2D")
+collision = NodePath("CollisionShape2D")
+texture_width = 16
+metadata/_custom_type_script = "uid://b2nkdv2pvgo2q"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=640380545]
+texture = ExtResource("2_s625s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2079658112]
+shape = SubResource("RectangleShape2D_5p6vy")

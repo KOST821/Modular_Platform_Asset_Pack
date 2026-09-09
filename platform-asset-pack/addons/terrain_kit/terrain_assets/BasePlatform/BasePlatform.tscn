@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b15n3doltmgcf"]
 
-[ext_resource type="Script" uid="uid://cl3udblxrk4t4" path="res://addons/terrain_kit/terrain_assets/base_platform/base_platform.gd" id="1_yaegt"]
+[ext_resource type="Script" uid="uid://cl3udblxrk4t4" path="res://addons/terrain_kit/terrain_assets/BasePlatform/BasePlatform.gd" id="1_yaegt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yaegt"]
 resource_local_to_scene = true

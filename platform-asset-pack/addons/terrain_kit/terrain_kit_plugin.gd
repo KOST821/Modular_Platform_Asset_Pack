@@ -9,11 +9,12 @@ func _enter_tree() -> void:
 	dock.name = "Terrain Kit"
 	
 	# 2. Create the buttons
-	_create_button("Add Base Platform", "res://addons/terrain_kit/terrain_assets/base_platform/basic_platform.tscn", "res://addons/terrain_kit/terrain_assets/base_platform/tilemap.svg")
-	_create_button("Add Moving Platform", "res://addons/terrain_kit/terrain_assets/moving_platform/moving_platform.tscn", "res://addons/terrain_kit/terrain_assets/moving_platform/moving_platform.svg")
-	_create_button("Add Break Platform", "res://addons/terrain_kit/terrain_assets/break_platform/break_platform.tscn", "res://addons/terrain_kit/terrain_assets/break_platform/skull.svg")
-	_create_button("Add One-Way Platform", "res://addons/terrain_kit/terrain_assets/one_way_collision_platform/one_way_platform.tscn", "res://addons/terrain_kit/terrain_assets/one_way_collision_platform/motion_vector.svg")
-	_create_button("Add Prop or Hazard", "res://addons/terrain_kit/terrain_assets/props_or_hazards/props_or_hazards.tscn", "res://addons/terrain_kit/terrain_assets/props_or_hazards/tree.svg")
+	_create_button("Add Base Platform", "res://addons/terrain_kit/terrain_assets/BasePlatform/BasePlatform.tscn", "res://addons/terrain_kit/terrain_assets/BasePlatform/grass.svg")
+	_create_button("Add Moving Platform", "res://addons/terrain_kit/terrain_assets/MovingPlatform/MovingPlatform.tscn", "res://addons/terrain_kit/terrain_assets/MovingPlatform/moving_platform.svg")
+	_create_button("Add Break Platform", "res://addons/terrain_kit/terrain_assets/BreakPlatform/BreakPlatform.tscn", "res://addons/terrain_kit/terrain_assets/BreakPlatform/bone_fracture.svg")
+	_create_button("Add PhysicalButton", "res://addons/terrain_kit/terrain_assets/PhysicalButton/PhysicalButton", "res://addons/terrain_kit/terrain_assets/PhysicalButton/push_button.svg")
+	_create_button("Add Lever", "res://addons/terrain_kit/terrain_assets/Lever/Lever.tscn", "res://addons/terrain_kit/terrain_assets/Lever/lever.svg")
+	_create_button("Add Prop or Hazard", "res://addons/terrain_kit/terrain_assets/PropOrHazard/PropOrHazard.tscn", "res://addons/terrain_kit/terrain_assets/PropOrHazard/tree.svg")
 	
 	# 3. Add the UI to the Godot Editor's left panel
 	add_control_to_dock(EditorPlugin.DOCK_SLOT_LEFT_UL, dock)

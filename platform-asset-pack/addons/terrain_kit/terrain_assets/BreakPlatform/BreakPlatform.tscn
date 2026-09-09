@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bywrwg0oldeq1"]
 
-[ext_resource type="Script" uid="uid://rkdbnycw1s6b" path="res://addons/terrain_kit/terrain_assets/break_platform/break_platform.gd" id="1_eanuk"]
+[ext_resource type="Script" uid="uid://rkdbnycw1s6b" path="res://addons/terrain_kit/terrain_assets/BreakPlatform/BreakPlatform.gd" id="1_eanuk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eanuk"]
 resource_local_to_scene = true

@@ -1,43 +1,35 @@
-[gd_scene format=3 uid="uid://bw6503wjxmjgq"]
+[gd_scene format=3 uid="uid://boxcy5m6k1suf"]
 
-[ext_resource type="Script" uid="uid://cok34g66fnvpe" path="res://addons/terrain_kit/terrain_assets/moving_platform/moving_platform.gd" id="1_s16q0"]
-[ext_resource type="Script" uid="uid://b205cvdqvwkkc" path="res://addons/terrain_kit/hitbox_component.gd" id="2_atoft"]
+[ext_resource type="Script" uid="uid://bbe0i0wdbmo7r" path="res://addons/terrain_kit/terrain_assets/moving_platform/moving_platform.gd" id="1_q06lf"]
+[ext_resource type="Script" uid="uid://b205cvdqvwkkc" path="res://addons/terrain_kit/hitbox_component.gd" id="2_hrpga"]
 
-[sub_resource type="Curve2D" id="Curve2D_5p6vy"]
-resource_local_to_scene = true
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y32ns"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n1qr4"]
 resource_local_to_scene = true
 size = Vector2(32, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5p6vy"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oaxfr"]
 resource_local_to_scene = true
 size = Vector2(30, 3)
 
-[node name="moving_platform" type="Path2D" unique_id=1439904874]
-curve = SubResource("Curve2D_5p6vy")
-script = ExtResource("1_s16q0")
+[node name="MovingPlatform" type="AnimatableBody2D" unique_id=1770235352 node_paths=PackedStringArray("sprite", "collision_shape", "attack")]
+script = ExtResource("1_q06lf")
+sprite = NodePath("Sprite2D")
+collision_shape = NodePath("CollisionShape2D")
+attack = NodePath("HitBox/CollisionShape2D")
 
-[node name="PathShower" type="PathFollow2D" parent="." unique_id=1080034402]
-rotates = false
-loop = false
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=132219436]
+shape = SubResource("RectangleShape2D_n1qr4")
+debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
 
-[node name="PosisionTransferer" type="RemoteTransform2D" parent="PathShower" unique_id=987134880]
-remote_path = NodePath("../../Standing_Pltf")
-update_rotation = false
-update_scale = false
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=18360492]
+texture_repeat = 2
 
-[node name="Standing_Pltf" type="AnimatableBody2D" parent="." unique_id=952034810]
+[node name="HitBox" type="Area2D" parent="." unique_id=1499428655]
+script = ExtResource("2_hrpga")
+metadata/_custom_type_script = "uid://b205cvdqvwkkc"
 
-[node name="PlatformsCollision" type="CollisionShape2D" parent="Standing_Pltf" unique_id=443111954]
-shape = SubResource("RectangleShape2D_y32ns")
-
-[node name="Icon" type="AnimatedSprite2D" parent="Standing_Pltf" unique_id=422435755]
-
-[node name="Area2D" type="Area2D" parent="Standing_Pltf" unique_id=514258288]
-script = ExtResource("2_atoft")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Standing_Pltf/Area2D" unique_id=602238746]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=229007827]
 position = Vector2(0, -17.5)
-shape = SubResource("RectangleShape2D_5p6vy")
+shape = SubResource("RectangleShape2D_oaxfr")
 disabled = true
+debug_color = Color(1, 0.6, 0.69803923, 0.41960785)

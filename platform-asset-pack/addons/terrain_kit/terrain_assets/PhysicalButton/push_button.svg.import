@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4nmjywfb4vwg"
-path="res://.godot/imported/motion_vector.svg-02d811a0bce7135bd5f25dbeaffe7c10.ctex"
+uid="uid://dgi525jl7yhcc"
+path="res://.godot/imported/push_button.svg-1c6f8d9ca60a78b9c4d8b138a679871b.ctex"
 metadata={
-"has_editor_variant": true,
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/terrain_kit/terrain_assets/one_way_collision_platform/motion_vector.svg"
-dest_files=["res://.godot/imported/motion_vector.svg-02d811a0bce7135bd5f25dbeaffe7c10.ctex"]
+source_file="res://addons/terrain_kit/terrain_assets/PhysicalButton/push_button.svg"
+dest_files=["res://.godot/imported/push_button.svg-1c6f8d9ca60a78b9c4d8b138a679871b.ctex"]
 
 [params]
 
@@ -40,5 +39,5 @@ process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
 svg/scale=1.0
-editor/scale_with_editor_scale=true
-editor/convert_colors_with_editor_theme=true
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

@@ -1,39 +1,34 @@
-[gd_scene format=3 uid="uid://cxgmg1fpl0ijm"]
+[gd_scene format=3 uid="uid://bywrwg0oldeq1"]
 
-[ext_resource type="Script" uid="uid://sc778b462uy6" path="res://addons/terrain_kit/terrain_assets/break_platform/break_platform.gd" id="1_6732w"]
+[ext_resource type="Script" uid="uid://rkdbnycw1s6b" path="res://addons/terrain_kit/terrain_assets/break_platform/break_platform.gd" id="1_eanuk"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5p6vy"]
-resource_local_to_scene = true
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ssxn5"]
-resource_local_to_scene = true
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_14niy"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eanuk"]
 resource_local_to_scene = true
 size = Vector2(32, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5p6vy"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sw7l4"]
 resource_local_to_scene = true
 size = Vector2(30, 3)
 
-[node name="Break_Platform" type="StaticBody2D" unique_id=132485514]
-physics_material_override = SubResource("PhysicsMaterial_5p6vy")
-script = ExtResource("1_6732w")
-texture = SubResource("SpriteFrames_ssxn5")
+[node name="BreakPlatform" type="StaticBody2D" unique_id=589806351 node_paths=PackedStringArray("area", "area_collision_shape", "sprite", "collision_shape")]
+script = ExtResource("1_eanuk")
+area = NodePath("SearchForPressed")
+area_collision_shape = NodePath("SearchForPressed/CollisionShape2D")
+sprite = NodePath("Sprite2D")
+collision_shape = NodePath("CollisionShape2D")
+metadata/_custom_type_script = "uid://rkdbnycw1s6b"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1079520438]
-shape = SubResource("RectangleShape2D_14niy")
-one_way_collision_direction = Vector2(0, -1)
-debug_color = Color(0, 0, 0, 0.41960785)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=828531102]
 
-[node name="Icon" type="AnimatedSprite2D" parent="." unique_id=635908687]
-texture_repeat = 2
-sprite_frames = SubResource("SpriteFrames_ssxn5")
-frame_progress = 0.102909215
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=175417079]
+shape = SubResource("RectangleShape2D_eanuk")
+debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
 
-[node name="Area2D" type="Area2D" parent="." unique_id=569750716]
+[node name="SearchForPressed" type="Area2D" parent="." unique_id=507132942]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1663831213]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SearchForPressed" unique_id=9791608]
 position = Vector2(0, -17.5)
-shape = SubResource("RectangleShape2D_5p6vy")
-debug_color = Color(0, 0.6, 0.69803923, 0)
+shape = SubResource("RectangleShape2D_sw7l4")
+debug_color = Color(1, 0.6, 0.69803923, 0.41960785)
+
+[connection signal="size_changed" from="." to="." method="_update_attack_area"]

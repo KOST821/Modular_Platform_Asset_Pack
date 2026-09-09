@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcmwsc2euqk5d"
-path="res://.godot/imported/moving_platform.svg-f19feb24b0e5f12d6128a71dbd01c95f.ctex"
+uid="uid://ctwx6x40rbnip"
+path="res://.godot/imported/Hit.png-e87c8d2fdce8eabd5f9e0cd246afda61.ctex"
 metadata={
-"has_editor_variant": true,
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/terrain_kit/terrain_assets/moving_platform/moving_platform.svg"
-dest_files=["res://.godot/imported/moving_platform.svg-f19feb24b0e5f12d6128a71dbd01c95f.ctex"]
+source_file="res://addons/terrain_kit/terrain_assets/PhysicalButton/Hit.png"
+dest_files=["res://.godot/imported/Hit.png-e87c8d2fdce8eabd5f9e0cd246afda61.ctex"]
 
 [params]
 
@@ -39,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=true
-editor/convert_colors_with_editor_theme=true

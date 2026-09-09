@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ggsdg8h41vpx"
-path="res://.godot/imported/tilemap.svg-20da5bdc92472a9ef4dc690ce2ef209f.ctex"
+uid="uid://n11264tnbg8u"
+path="res://.godot/imported/bone_fracture.svg-8593c4f85a19e6aa59c0ca9822421a4c.ctex"
 metadata={
-"has_editor_variant": true,
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/terrain_kit/terrain_assets/base_platform/tilemap.svg"
-dest_files=["res://.godot/imported/tilemap.svg-20da5bdc92472a9ef4dc690ce2ef209f.ctex"]
+source_file="res://addons/terrain_kit/terrain_assets/break_platform/bone_fracture.svg"
+dest_files=["res://.godot/imported/bone_fracture.svg-8593c4f85a19e6aa59c0ca9822421a4c.ctex"]
 
 [params]
 
@@ -40,5 +39,5 @@ process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
 svg/scale=1.0
-editor/scale_with_editor_scale=true
-editor/convert_colors_with_editor_theme=true
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

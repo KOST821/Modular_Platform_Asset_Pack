@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b15n3doltmgcf"]
+
+[ext_resource type="Script" uid="uid://cl3udblxrk4t4" path="res://addons/terrain_kit/terrain_assets/base_platform/base_platform.gd" id="1_yaegt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yaegt"]
+resource_local_to_scene = true
+radius = 15.5
+
+[node name="BasePlatform" type="StaticBody2D" unique_id=722095568 node_paths=PackedStringArray("collision_shape")]
+script = ExtResource("1_yaegt")
+collision_shape = NodePath("CollisionShape2D")
+debug_color = Color(0, 0.8117647, 0.38039216, 0.41960785)
+metadata/_custom_type_script = "uid://cl3udblxrk4t4"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=882664030]
+shape = SubResource("CircleShape2D_yaegt")
+debug_color = Color(0, 0.8117647, 0.38039216, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1041511238]

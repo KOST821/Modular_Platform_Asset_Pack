@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://de44hopdiag5t"]
+
+[ext_resource type="Script" uid="uid://bqk6535vm35bj" path="res://addons/terrain_kit/terrain_assets/PhysicalButton/PhysicalButton.gd" id="1_4u77d"]
+[ext_resource type="Texture2D" uid="uid://ctwx6x40rbnip" path="res://addons/terrain_kit/terrain_assets/PhysicalButton/Hit.png" id="2_65a4t"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5p6vy"]
+radius = 2.0
+height = 22.0
+
+[node name="PhysicalButton" type="Node2D" unique_id=1366242800 node_paths=PackedStringArray("pressing_point", "sprite")]
+script = ExtResource("1_4u77d")
+pressing_point = NodePath("Area2D")
+sprite = NodePath("Sprite2D")
+metadata/_custom_type_script = "uid://bqk6535vm35bj"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1850007162]
+texture_filter = 1
+texture = ExtResource("2_65a4t")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=647391496]
+position = Vector2(0, -9)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1368059589]
+shape = SubResource("CapsuleShape2D_5p6vy")

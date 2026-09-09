@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j6nakr7wlph8"
-path="res://.godot/imported/tree.svg-41c5b812a2a6565429a6ef6bc03bc76a.ctex"
+uid="uid://cuafs88gjgpuy"
+path="res://.godot/imported/gate.svg-feb11031ed92787a6df15cf044f59621.ctex"
 metadata={
-"has_editor_variant": true,
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/terrain_kit/terrain_assets/props_or_hazards/tree.svg"
-dest_files=["res://.godot/imported/tree.svg-41c5b812a2a6565429a6ef6bc03bc76a.ctex"]
+source_file="res://addons/terrain_kit/terrain_assets/gate.svg"
+dest_files=["res://.godot/imported/gate.svg-feb11031ed92787a6df15cf044f59621.ctex"]
 
 [params]
 
@@ -40,5 +39,5 @@ process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
 svg/scale=1.0
-editor/scale_with_editor_scale=true
-editor/convert_colors_with_editor_theme=true
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

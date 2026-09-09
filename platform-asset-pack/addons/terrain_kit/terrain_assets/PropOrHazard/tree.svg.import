@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcmwsc2euqk5d"
-path="res://.godot/imported/moving_platform.svg-f19feb24b0e5f12d6128a71dbd01c95f.ctex"
+uid="uid://btt4o11n3wkra"
+path="res://.godot/imported/tree.svg-4eed48cd84eabc1a57d4172c715b7ab9.ctex"
 metadata={
-"has_editor_variant": true,
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/terrain_kit/terrain_assets/moving_platform/moving_platform.svg"
-dest_files=["res://.godot/imported/moving_platform.svg-f19feb24b0e5f12d6128a71dbd01c95f.ctex"]
+source_file="res://addons/terrain_kit/terrain_assets/PropOrHazard/tree.svg"
+dest_files=["res://.godot/imported/tree.svg-4eed48cd84eabc1a57d4172c715b7ab9.ctex"]
 
 [params]
 
@@ -40,5 +39,5 @@ process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
 svg/scale=1.0
-editor/scale_with_editor_scale=true
-editor/convert_colors_with_editor_theme=true
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

@@ -1,19 +1,27 @@
 extends Area2D
 class_name HurtBox
 
-@export var user:Node2D
+@export var health_counter: Node
+@export_placeholder("take_damage") var method: String
 
 func _ready() -> void:
-	if user == null:
-		user = get_parent()
-		print_rich('[color=YELLOW] There was no user placed. The parent got automaticlly placed, KOSSAINIS')
+	if health_counter == null:
+		push_error('HurtBox error: There was no health_counter placed on ', get_parent().name)
+		# Removed get_tree().quit() so the editor doesn't crash on testing
+		return
+	
+	if method == "":
+		method = "take_damage"
+		push_warning("HurtBox warning: No method written! The placeholder was automatically added.")
+		
 	monitoring = false
 
-func take_damage(damage:int)->void:
-	if ! "health_component" in user:
-		printerr("You MUST add a variable health_component to the user which is a HealthComponent, try adding this to the top of your script: <<@export var health_component:HealthComponent>> KOSSAINIS")
+func take_damage(damage: float) -> void:
+	if !health_counter:
+		printerr("HurtBox error: You MUST assign a node to the health_counter slot in the inspector. KOSSAINIS")
 		return
-	if user.health_component != null:
-		user.health_component.take_damage(damage)
+		
+	if health_counter.has_method(method):
+		health_counter.call_deferred(method, damage)
 	else:
-		printerr('You forgot to place the health component to the parent (',self,'). Automaticlly added the parent (',user,') KOSSAINIS')
+		push_error("The assigned health_counter does not have a method named: ", method)

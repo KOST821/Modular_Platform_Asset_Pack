@@ -66,3 +66,7 @@ This pack includes a completely decoupled damage system. You can drop these onto
 
 # Interactables
 **(Lever & PhysicalButton):** Puzzle elements designed to trigger events. The lever features smooth animation toggling, while the physical button uses tween-driven physics to physically compress when stepped on by a player or object.
+
+# Documentation
+
+You can find a full [documentation here](/addons/terrain_kit/README.md)

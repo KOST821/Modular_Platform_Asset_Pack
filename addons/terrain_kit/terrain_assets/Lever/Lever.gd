@@ -71,24 +71,27 @@ func set_correct_collision() -> void:
 			collision.position.x += texture_width
 
 func _switch(_body:Node2D) -> void:
-	print("enter")
 	if _switched:
 		return
 	
 	if sprite is AnimatedSprite2D:
+		# Determine if we should play forward based on the physical state
+		var play_forward: bool = true
+		
 		if _is_left:
-			match starting_position:
-				"LEFT":
-					sprite.play()
-				"RIGHT":
-					sprite.play_backwards()
+			play_forward = (starting_position == "LEFT")
 		else:
-			match starting_position:
-				"LEFT":
-					sprite.play_backwards()
-				"RIGHT":
-					sprite.play()
-	
+			play_forward = (starting_position == "RIGHT")
+			
+		# Invert the playback if the native animation is drawn right-to-left
+		if animation_play == WAY.RIGHT_TO_LEFT:
+			play_forward = !play_forward
+
+		if play_forward:
+			sprite.play()
+		else:
+			sprite.play_backwards()
+			
 	elif sprite is Sprite2D:
 		sprite.flip_h = !sprite.flip_h
 	

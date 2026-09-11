@@ -14,7 +14,7 @@ extends StaticBody2D
 ## The [CollisionShape2D] that defines the collision of the [b]Prop[/b] or [b]Hazard[/b].
 @export var collision_shape: CollisionShape2D
 ## The [HitBox] that is used to deal damage.[br]
-## If it is a Prop there is no need of it beeng added.
+## If it is a Prop there is no need of it being added.
 @export var hitbox_component: HitBox
 ## The [CollisionShape2D] that defines the [HitBox] of the Hazard.
 @export var hitbox_shape: CollisionShape2D
@@ -44,7 +44,7 @@ extends StaticBody2D
 		is_hazard = value
 		_update_hazard_state()
 
-## The amount of health points this hazard reduse.
+## The amount of health points this hazard reduses.
 @export_custom(PROPERTY_HINT_NONE, "suffix:hp") var damage: float = 10.0:
 	set(value):
 		damage = value

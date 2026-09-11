@@ -14,7 +14,7 @@ signal toggle(is_on:bool, physical_button:Node2D)
 ## How many pixels should the button go down.
 @export_custom(PROPERTY_HINT_NONE, "suffix:px") var offset:float = 10.0
 
-## The [Area2D] that searces for a person above the button.
+## The [Area2D] that searches for a person above the button.
 @export var pressing_point: Area2D:
 	set(area):
 		pressing_point = area

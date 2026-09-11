@@ -3,27 +3,27 @@
 It is essential to know how to use the **addon**. In this file I will provide you the details on how to use it!
 
 - [Starting](#starting)
-    * ![pltf](/terrain_assets/BaseScripts/gate.svg) [Platforms](#platforms-)
-    * ![prphzr](/terrain_assets/BaseScripts/tree_evergreen.svg) [Props and Hazards](#props-and-hazards-)
+    * ![pltf](terrain_assets/BaseScripts/gate.svg) [Platforms](#platforms-)
+    * ![prphzr](terrain_assets/BaseScripts/tree_evergreen.svg) [Props and Hazards](#props-and-hazards-)
 
 - [Specific](#specific)
-    * ![brk_pltf](/terrain_assets/BreakPlatform/bone_fracture.svg) [Break Platform](#break-platform-)
-    * ![mv_pltf](/terrain_assets/MovingPlatform/moving_platform.svg) [Moving Platform](#moving-platform-)
+    * ![brk_pltf](terrain_assets/BreakPlatform/bone_fracture.svg) [Break Platform](#break-platform-)
+    * ![mv_pltf](terrain_assets/MovingPlatform/moving_platform.svg) [Moving Platform](#moving-platform-)
     * [Props Or Hazards](#props-or-hazards)
-        - ![fan](/terrain_assets/Fan/fan.svg) [Fan](#fan-)
+        - ![fan](terrain_assets/Fan/fan.svg) [Fan](#fan-)
 
 - [The additional](#the-additional)
-    * ![lever](/terrain_assets/Lever/lever.svg) [Lever](#lever-)
-    * ![PhBtn](/terrain_assets/PhysicalButton/push_button.svg) [Physical Button](#physical-button-)
+    * ![lever](terrain_assets/Lever/lever.svg) [Lever](#lever-)
+    * ![PhBtn](terrain_assets/PhysicalButton/push_button.svg) [Physical Button](#physical-button-)
     * [How to add them](#how-to-add-them)
 
 - [Addon Details](#addon-details)
 
 # Starting
 
-The addon is based on 2 scripts that all nodes extend, [Platform](/terrain_assets/BaseScripts/PlatformBaseScript.gd) and [Prop or Hazard](/terrain_assets/BaseScripts/PropOrHazard.gd), that way most of the platforms and props are in need of the same setup!
+The addon is based on 2 scripts that all nodes extend, [Platform](terrain_assets/BaseScripts/PlatformBaseScript.gd) and [Prop or Hazard](terrain_assets/BaseScripts/PropOrHazard.gd), that way most of the platforms and props are in need of the same setup!
 
-## Platforms <img width="24" height="24" alt="pltf" src="/terrain_assets/BaseScripts/gate.svg"/>
+## Platforms <img width="24" height="24" alt="pltf" src="terrain_assets/BaseScripts/gate.svg"/>
 
 This is the base setup for all generic platforms, inheriting from `PlatformBaseScript.gd`.
 
@@ -51,7 +51,7 @@ This is the base setup for all generic platforms, inheriting from `PlatformBaseS
 | Enable (Dir Circle)| `false` | If enabled, the location of attack is overwritten and defined by an orbital circle. | [bool](https://docs.godotengine.org/en/stable/classes/class_bool.html) |
 | Degrees (Dir Circle)| 0.0 | The exact orbital degrees on an XY axis system for hazard placement. | [float](https://docs.godotengine.org/en/stable/classes/class_float.html) |
 
-## Props and Hazards <img width="24" height="24" alt="prp_hzr" src="/terrain_assets/BaseScripts/tree_evergreen.svg"/>
+## Props and Hazards <img width="24" height="24" alt="prp_hzr" src="terrain_assets/BaseScripts/tree_evergreen.svg"/>
 
 This is the base setup for all generic obstacles, decorations, and traps, inheriting from `PropOrHazard.gd`.
 
@@ -72,7 +72,7 @@ This is the base setup for all generic obstacles, decorations, and traps, inheri
 
 # Specific
 
-## Break Platform <img width="24" height="24" alt="brk_pltf" src="/terrain_assets/BreakPlatform/bone_fracture.svg"/>
+## Break Platform <img width="24" height="24" alt="brk_pltf" src="terrain_assets/BreakPlatform/bone_fracture.svg"/>
 
 This node inherits from `Platform.gd` but acts as a fragile surface that crumbles when stood upon. 
 
@@ -82,7 +82,7 @@ This node inherits from `Platform.gd` but acts as a fragile surface that crumble
 | Area | `null` | The Area2D that detects if someone is standing on top of the platform. | [Area2D](https://docs.godotengine.org/en/stable/classes/class_area2d.html) |
 | Area Collision Shape | `null` | The CollisionShape2D used by the Area2D to detect the player. Automatically resized to match the platform. | [CollisionShape2D](https://docs.godotengine.org/en/stable/classes/class_collisionshape2d.html) |
 
-## Moving Platform <img width="24" height="24" alt="moving_pltf" src="/terrain_assets/MovingPlatform/moving_platform.svg"/>
+## Moving Platform <img width="24" height="24" alt="moving_pltf" src="terrain_assets/MovingPlatform/moving_platform.svg"/>
 
 This node inherits from `Platform.gd` and follows a specific path.
 > [!NOTE]
@@ -98,7 +98,7 @@ This node inherits from `Platform.gd` and follows a specific path.
 
 # Props Or Hazards
 
-## Fan <img width="24" height="24" alt="fan" src="/terrain_assets/Fan/fan.svg"/>
+## Fan <img width="24" height="24" alt="fan" src="terrain_assets/Fan/fan.svg"/>
 
 This node inherits from `PropOrHazard.gd` and creates a directional wind zone.
 
@@ -114,7 +114,7 @@ This node inherits from `PropOrHazard.gd` and creates a directional wind zone.
 > [!NOTE]
 > The Nodes below are not used anywhere in the addon, but it is easy to add them [learn here how](#how-to-add-them)
 
-## Lever <img width="24" height="24" alt="lever" src="/terrain_assets/Lever/lever.svg"/>
+## Lever <img width="24" height="24" alt="lever" src="terrain_assets/Lever/lever.svg"/>
 
 An interactable Area2D switch that can be toggled by the player.
 
@@ -126,7 +126,7 @@ An interactable Area2D switch that can be toggled by the player.
 | Texture Width | 32 | Used to calculate the offset of the collision when flipped. | [int](https://docs.godotengine.org/en/stable/classes/class_int.html) |
 | Animation Play | RIGHT TO LEFT | If the sprite is an AnimatedSprite2D, sets the animation direction. | [enum (int)](https://docs.godotengine.org/en/stable/tutorials/best_practices/data_preferences.html#enumerations-int-vs-string) |
 
-## Physical Button <img width="24" height="24" alt="physical_button" src="/terrain_assets/PhysicalButton/push_button.svg"/>
+## Physical Button <img width="24" height="24" alt="physical_button" src="terrain_assets/PhysicalButton/push_button.svg"/>
 
 A physics-driven button that depresses when objects are placed on top of it.
 
@@ -201,7 +201,7 @@ func _on_lever_toggled(is_on: bool, _node: Node2D) -> void:
 
 # Addon Details
 
-I provided this addon with a **Base Platform** ![base_pltf](/terrain_assets/BasePlatform/grass.svg), a **Prop** ![prp](/terrain_assets/PropOrHazard/Prop/tree.svg) and a **Hazard** ![hzr](/terrain_assets/PropOrHazard/Hazard/bomb.svg) too! And Preset scenes for every asset, along with 3 components.
+I provided this addon with a **Base Platform** ![base_pltf](terrain_assets/BasePlatform/grass.svg), a **Prop** ![prp](terrain_assets/PropOrHazard/Prop/tree.svg) and a **Hazard** ![hzr](terrain_assets/PropOrHazard/Hazard/bomb.svg) too! And Preset scenes for every asset, along with 3 components.
 
 > [!TIP]
 > Components are working but I would advise you to try and make your own.

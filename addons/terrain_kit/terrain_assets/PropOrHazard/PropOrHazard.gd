@@ -5,10 +5,18 @@ extends StaticBody2D
 class_name PropOrHazard
 
 @export_category("Nodes")
+## The [Sprite2D] that holds the texture.[br] 
+## It is [b]useless[/b] if [member PropOrHazard.visual_type] is [i]Animated[/i].
 @export var sprite_still: Sprite2D
+## The [AnimatedSprite2D] that holds the texture.[br] 
+## It is [b]useless[/b] if [member PropOrHazard.visual_type] is [i]Still[/i].
 @export var sprite_animated: AnimatedSprite2D
+## The [CollisionShape2D] that defines the collision of the [b]Prop[/b] or [b]Hazard[/b].
 @export var collision_shape: CollisionShape2D
+## The [HitBox] that is used to deal damage.[br]
+## If it is a Prop there is no need of it beeng added.
 @export var hitbox_component: HitBox
+## The [CollisionShape2D] that defines the [HitBox] of the Hazard.
 @export var hitbox_shape: CollisionShape2D
 
 @export_category("Prop Type")
@@ -17,12 +25,12 @@ class_name PropOrHazard
 	set(value):
 		visual_type = value
 		_update_visuals()
-
+## The texture if it has a Still [member PropOrHazard.visual_type].
 @export var texture_still: Texture2D:
 	set(value):
 		texture_still = value
 		_update_visuals()
-
+## The texture if it has a Animated [member PropOrHazard.visual_type].
 @export var texture_animated: SpriteFrames:
 	set(value):
 		texture_animated = value
@@ -55,6 +63,7 @@ var _rest_timer: float = 0.0
 func _ready() -> void:
 	_update_visuals()
 	_update_hazard_state()
+	_from_start()
 	
 	if not Engine.is_editor_hint():
 		if hitbox_component != null:
@@ -96,6 +105,7 @@ func _update_hazard_state() -> void:
 			hitbox_shape.set_deferred("disabled", true)
 
 func _process(delta: float) -> void:
+	_update(delta)
 	if Engine.is_editor_hint() or not is_hazard or hitbox_shape == null: 
 		return
 		
@@ -113,3 +123,13 @@ func _process(delta: float) -> void:
 				_is_active = true
 				_rest_timer = pulse_rest_time # Reset for next cycle
 				hitbox_shape.set_deferred("disabled", false)
+
+func _physics_process(delta: float) -> void:
+	_physics_update(delta)
+
+## A replacement of [b]_ready[/b]
+func _from_start()->void:pass
+## A replacement of [b]_process[/b]
+func _update(delta:float)->void:pass
+## A replacement of [b]_physics_process[/b]
+func _physics_update(delta:float)->void:pass

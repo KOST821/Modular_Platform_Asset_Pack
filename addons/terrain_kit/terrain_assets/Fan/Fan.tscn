@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cct6mp33cxj0x"]
+
+[ext_resource type="Script" uid="uid://cv0vdmijvj8r8" path="res://addons/terrain_kit/terrain_assets/Fan/Fan.gd" id="1_n620m"]
+[ext_resource type="Texture2D" uid="uid://ctwx6x40rbnip" path="res://addons/terrain_kit/terrain_assets/PhysicalButton/Hit.png" id="2_if0uc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obxuk"]
+size = Vector2(280, 221)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5p6vy"]
+
+[node name="Fan" type="StaticBody2D" unique_id=420411396 node_paths=PackedStringArray("air_area", "sprite_still", "collision_shape")]
+script = ExtResource("1_n620m")
+air_area = NodePath("Area2D")
+sprite_still = NodePath("")
+collision_shape = NodePath("CollisionShape2D")
+texture_still = ExtResource("2_if0uc")
+metadata/_custom_type_script = "uid://cv0vdmijvj8r8"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1726538455]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=959299239]
+position = Vector2(2, -100.5)
+shape = SubResource("RectangleShape2D_obxuk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2083592289]
+shape = SubResource("RectangleShape2D_5p6vy")

@@ -1,2 +1,11 @@
-# Auto detect text files and perform LF normalization
+# 1. Auto detect text files and perform LF normalization
 * text=auto
+
+# 2. Ignore absolutely everything in the repo when generating the ZIP
+* export-ignore
+.* export-ignore
+
+# 3. Force Git to include the addons directory and everything inside it
+addons/ -export-ignore
+addons/* -export-ignore
+addons/** -export-ignore

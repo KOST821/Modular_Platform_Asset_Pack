@@ -6,7 +6,7 @@ class_name MovingPlatform
 
 @export_category("Platform Movement")
 ## The speed at which the platform will move if acceleration is disabled.
-@export var speed: float = 150.0
+@export_custom(PROPERTY_HINT_NONE, "suffix:px/s") var speed: float = 150.0
 ## The [Path2D] the platform will follow. Must be assigned for movement to work.
 @export var path: Path2D
 
@@ -14,9 +14,9 @@ class_name MovingPlatform
 ## If enabled, overrides "speed" and forces the platform to accelerate smoothly between ends.
 @export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var acc_acceleration_enable: bool = false
 ## The exact time (in seconds) it takes to reach the end of the path.
-@export var acc_travel_time: float = 3.0 
+@export_custom(PROPERTY_HINT_NONE, "suffix:sec") var acc_travel_time: float = 3.0 
 ## The time (in seconds) the platform rests before moving again.
-@export var acc_wait_time: float = 1.0 # Rest time at ends
+@export_custom(PROPERTY_HINT_NONE, "suffix:sec") var acc_wait_time: float = 1.0 # Rest time at ends
 
 var _path_follow:PathFollow2D = null
 var _moving_forward: bool = true

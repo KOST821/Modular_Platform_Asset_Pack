@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://boxcy5m6k1suf"]
 
 [ext_resource type="Script" uid="uid://bbe0i0wdbmo7r" path="res://addons/terrain_kit/terrain_assets/MovingPlatform/MovingPlatform.gd" id="1_q06lf"]
-[ext_resource type="Script" uid="uid://b205cvdqvwkkc" path="res://addons/terrain_kit/hitbox_component.gd" id="2_hrpga"]
+[ext_resource type="Script" uid="uid://b205cvdqvwkkc" path="res://addons/terrain_kit/Components/hitbox_component.gd" id="2_hrpga"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n1qr4"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hf0cu"]
 resource_local_to_scene = true
 size = Vector2(32, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oaxfr"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0bovu"]
 resource_local_to_scene = true
 size = Vector2(30, 3)
 
@@ -18,7 +18,7 @@ collision_shape = NodePath("CollisionShape2D")
 attack = NodePath("HitBox/CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=132219436]
-shape = SubResource("RectangleShape2D_n1qr4")
+shape = SubResource("RectangleShape2D_hf0cu")
 debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=18360492]
@@ -30,6 +30,6 @@ metadata/_custom_type_script = "uid://b205cvdqvwkkc"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=229007827]
 position = Vector2(0, -17.5)
-shape = SubResource("RectangleShape2D_oaxfr")
+shape = SubResource("RectangleShape2D_0bovu")
 disabled = true
 debug_color = Color(1, 0.6, 0.69803923, 0.41960785)

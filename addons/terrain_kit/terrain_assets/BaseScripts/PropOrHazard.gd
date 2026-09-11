@@ -1,8 +1,8 @@
 @tool
-@icon("tree.svg")
+@icon("tree_evergreen.svg")
+@abstract class_name PropOrHazard
 ## A modular entity that can act as a static background prop, a solid obstacle, or a deadly hazard.
 extends StaticBody2D
-class_name PropOrHazard
 
 @export_category("Nodes")
 ## The [Sprite2D] that holds the texture.[br] 
@@ -37,28 +37,58 @@ class_name PropOrHazard
 		_update_visuals()
 
 @export_category("Hazard Settings")
+@export_group('Is Hazard')
 ## If enabled, this prop will deal damage to HurtBoxes.
-@export var is_hazard: bool = false:
+@export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var is_hazard: bool = false:
 	set(value):
 		is_hazard = value
 		_update_hazard_state()
 
-## The amount of damage this hazard deals.
-@export var damage: float = 10.0:
+## The amount of health points this hazard reduse.
+@export_custom(PROPERTY_HINT_NONE, "suffix:hp") var damage: float = 10.0:
 	set(value):
 		damage = value
 		if is_node_ready() and hitbox_component != null:
 			hitbox_component.damage = damage
 
-@export_group("Pulsing Timer", "pulse_")
+@export_subgroup("Pulsing Timer", "pulse_")
 ## The time (in seconds) the hazard stays active.
-@export_range(0.1, 10.0, 0.1, "or_greater") var pulse_active_time: float = 0.0
+@export_range(0.1, 10.0, 0.1, "or_greater", "hide_control", "suffix:sec") var pulse_active_time: float = 0.0
 ## The time (in seconds) the hazard waits before activating.
-@export_range(0.1, 10.0, 0.1, "or_greater") var pulse_rest_time: float = 0.0
+@export_range(0.1, 10.0, 0.1, "or_greater", "hide_control", "suffix:sec") var pulse_rest_time: float = 0.0
 
 var _is_active: bool = false
 var _active_timer: float = 0.0
 var _rest_timer: float = 0.0
+
+func _get_configuration_warnings() -> PackedStringArray:
+	var warnings:PackedStringArray = []
+	
+	if visual_type == 0: # Still
+		if sprite_still == null:
+			warnings.append("You have a Visual Type of Still but no Sprite Still.")
+		
+		if texture_still == null:
+			warnings.append("You have a Visual Type of Still but no Texture Still.")
+	
+	elif  visual_type == 1: # Animated
+		if sprite_animated == null:
+			warnings.append("You have a Visual Type of Animated but no Sprite Animated.")
+		
+		if texture_animated == null:
+			warnings.append("You have a Visual Type of Animated but no Texture Animated.")
+	
+	if is_hazard:
+		if hitbox_component == null:
+			warnings.append("You have a Hazard but no HitBox, it will do no damage.")
+		
+		if hitbox_shape == null:
+			warnings.append("You have a Hazard but no HitBox Shape.")
+	
+	if collision_shape == null:
+		warnings.append("To work attach a Colision Shape")
+	
+	return warnings
 
 func _ready() -> void:
 	_update_visuals()

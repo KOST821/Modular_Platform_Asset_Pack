@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuafs88gjgpuy"
-path="res://.godot/imported/gate.svg-feb11031ed92787a6df15cf044f59621.ctex"
+uid="uid://btt4o11n3wkra"
+path="res://.godot/imported/tree.svg-3ab480e6d71b88697c4faaf03d2acf20.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/terrain_kit/terrain_assets/gate.svg"
-dest_files=["res://.godot/imported/gate.svg-feb11031ed92787a6df15cf044f59621.ctex"]
+source_file="res://addons/terrain_kit/terrain_assets/PropOrHazard/Prop/tree.svg"
+dest_files=["res://.godot/imported/tree.svg-3ab480e6d71b88697c4faaf03d2acf20.ctex"]
 
 [params]
 

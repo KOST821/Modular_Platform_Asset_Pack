@@ -1,28 +1,30 @@
-[gd_scene format=3 uid="uid://diub5mlygnsif"]
+[gd_scene format=3 uid="uid://b3341ujv0qhec"]
 
-[ext_resource type="Script" uid="uid://ggnprterscj2" path="res://addons/terrain_kit/terrain_assets/PropOrHazard/PropOrHazard.gd" id="1_m1xp6"]
-[ext_resource type="Texture2D" uid="uid://btt4o11n3wkra" path="res://addons/terrain_kit/terrain_assets/PropOrHazard/tree.svg" id="2_wo5ex"]
-[ext_resource type="Script" uid="uid://b205cvdqvwkkc" path="res://addons/terrain_kit/hitbox_component.gd" id="3_qdq81"]
+[ext_resource type="Script" uid="uid://okubesdwv30m" path="res://addons/terrain_kit/terrain_assets/PropOrHazard/Hazard/Hazard.gd" id="1_ry8uv"]
+[ext_resource type="Script" uid="uid://b205cvdqvwkkc" path="res://addons/terrain_kit/Components/hitbox_component.gd" id="2_jxd6a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5p6vy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5p6vy"]
 radius = 13.0
 
-[node name="PropOrHazard" type="StaticBody2D" unique_id=238295592 node_paths=PackedStringArray("sprite_still", "collision_shape")]
-script = ExtResource("1_m1xp6")
+[node name="Hazard" type="StaticBody2D" unique_id=238295592 node_paths=PackedStringArray("sprite_still", "collision_shape", "hitbox_component", "hitbox_shape")]
+script = ExtResource("1_ry8uv")
 sprite_still = NodePath("Sprite2D")
 collision_shape = NodePath("CollisionShape2D")
-metadata/_custom_type_script = "uid://ggnprterscj2"
+hitbox_component = NodePath("Hitbox")
+hitbox_shape = NodePath("Hitbox/CollisionShape2D")
+is_hazard = true
+pulse_active_time = 0.6
+pulse_rest_time = 1.2000000000000002
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=996759236]
-texture = ExtResource("2_wo5ex")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=383105573]
 shape = SubResource("RectangleShape2D_5p6vy")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1992364255 node_paths=PackedStringArray("user")]
-script = ExtResource("3_qdq81")
+script = ExtResource("2_jxd6a")
 user = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=167902952]

@@ -12,9 +12,11 @@ func _enter_tree() -> void:
 	_create_button("Add Base Platform", "res://addons/terrain_kit/terrain_assets/BasePlatform/BasePlatform.tscn", "res://addons/terrain_kit/terrain_assets/BasePlatform/grass.svg")
 	_create_button("Add Moving Platform", "res://addons/terrain_kit/terrain_assets/MovingPlatform/MovingPlatform.tscn", "res://addons/terrain_kit/terrain_assets/MovingPlatform/moving_platform.svg")
 	_create_button("Add Break Platform", "res://addons/terrain_kit/terrain_assets/BreakPlatform/BreakPlatform.tscn", "res://addons/terrain_kit/terrain_assets/BreakPlatform/bone_fracture.svg")
-	_create_button("Add PhysicalButton", "res://addons/terrain_kit/terrain_assets/PhysicalButton/PhysicalButton", "res://addons/terrain_kit/terrain_assets/PhysicalButton/push_button.svg")
+	_create_button("Add Prop", "res://addons/terrain_kit/terrain_assets/PropOrHazard/Prop/Prop.tscn", "res://addons/terrain_kit/terrain_assets/PropOrHazard/Prop/tree.svg")
+	_create_button("Add Hazard", "res://addons/terrain_kit/terrain_assets/PropOrHazard/Hazard/Hazard.tscn", "res://addons/terrain_kit/terrain_assets/PropOrHazard/Hazard/bomb.svg")
+	_create_button("Add a Fan", "res://addons/terrain_kit/terrain_assets/Fan/Fan.tscn", "res://addons/terrain_kit/terrain_assets/Fan/fan.svg")
+	_create_button("Add Physical Button", "res://addons/terrain_kit/terrain_assets/PhysicalButton/PhysicalButton", "res://addons/terrain_kit/terrain_assets/PhysicalButton/push_button.svg")
 	_create_button("Add Lever", "res://addons/terrain_kit/terrain_assets/Lever/Lever.tscn", "res://addons/terrain_kit/terrain_assets/Lever/lever.svg")
-	_create_button("Add Prop or Hazard", "res://addons/terrain_kit/terrain_assets/PropOrHazard/PropOrHazard.tscn", "res://addons/terrain_kit/terrain_assets/PropOrHazard/tree.svg")
 	
 	# 3. Add the UI to the Godot Editor's left panel
 	add_control_to_dock(EditorPlugin.DOCK_SLOT_LEFT_UL, dock)

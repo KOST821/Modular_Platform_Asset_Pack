@@ -47,7 +47,7 @@ signal size_changed(width:int, height:int)
 		_update_visuals()
 
 ## The textures width, if greater than the original it adds a second texture.
-@export_range(0, 128, 1, "or_greater") var texture_width: int = 32:
+@export_range(0, 128, 1, "or_greater", "suffix:px") var texture_width: int = 32:
 	set(value):
 		texture_width = value
 		_update_visuals()
@@ -55,7 +55,7 @@ signal size_changed(width:int, height:int)
 			_update_attack()
 
 ## The textures height, if greater than the original it adds a second texture.
-@export_range(0, 128, 1, "or_greater") var texture_height: int = 32:
+@export_range(0, 128, 1, "or_greater", "suffix:px") var texture_height: int = 32:
 	set(value):
 		texture_height = value
 		_update_visuals()
@@ -84,7 +84,7 @@ signal size_changed(width:int, height:int)
 		if is_node_ready():
 			_update_visuals()
 ## The exact angle in degrees for the one-way collision pass-through.
-@export var circle_degrees:float = 0:
+@export_custom(PROPERTY_HINT_NONE, "suffix:°") var circle_degrees:float = 0:
 	set(value):
 		circle_degrees = value
 		if is_node_ready():
@@ -100,12 +100,12 @@ signal size_changed(width:int, height:int)
 		if is_node_ready():
 			_update_attack()
 			
-## The damage your Hazard will make.
-@export_range(0.0, 100.0, 0.1, "or_greater") var damage: float = 5
+## The helth your Hazard will reduce.
+@export_range(0.0, 100.0, 0.1, "or_greater", "hide_control", "suffix:hp") var damage: float = 5
 ## The time that the Hazard will wait untill it activates.
-@export_range(0.1, 10.0, 0.1, "or_greater") var activate_time: float = 0.2
+@export_range(0.1, 10.0, 0.1, "or_greater", "hide_control", "suffix:sec") var activate_time: float = 0.2
 ## The time that the Hazard will be active.
-@export_range(0.1, 10.0, 0.1, "or_greater") var active_time: float = 0.2
+@export_range(0.1, 10.0, 0.1, "or_greater", "hide_control", "suffix:sec") var active_time: float = 0.2
 
 ## If [b]false[/b], the script will stop auto-sizing the hitbox so you can build it manually.
 @export var auto_size_attack: bool = true:
@@ -130,7 +130,7 @@ signal size_changed(width:int, height:int)
 			_update_attack()
 
 ## How far the attack will be from the main Hazard.
-@export var dir_attack_reach: float = 3.0:
+@export_custom(PROPERTY_HINT_NONE, "suffix:px") var dir_attack_reach: float = 3.0:
 	set(value):
 		dir_attack_reach = max(1.0, value)
 		if is_node_ready():
@@ -144,7 +144,7 @@ signal size_changed(width:int, height:int)
 		if is_node_ready():
 			_update_attack()
 ## The degrees of the circle for the position. A classic XY axis system.
-@export_range(0.0, 360.0) var circle_dir_degrees: float = 0.0:
+@export_range(0.0, 360.0, 0.1, "suffix:°") var circle_dir_degrees: float = 0.0:
 	set(value):
 		circle_dir_degrees = value
 		if is_node_ready():

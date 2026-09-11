@@ -5,7 +5,7 @@ extends Platform
 class_name BreakPlatform
 
 ## The time (in seconds) the player can stand on the platform before it vanishes.
-@export var break_time:float = 1.0
+@export_custom(PROPERTY_HINT_NONE, "suffix:sec") var break_time:float = 1.0
 ## The area that sees if someone is standing on top of the platform.
 @export var area:Area2D
 ## The [CollisionShape2D] used by the [Area2D] to detect the player. Automatically resized to match the platform.
@@ -17,6 +17,8 @@ var _main_shape_unique_break:bool = false
 var _tween:Tween
 
 func _from_start() -> void:
+	if ! size_changed.is_connected(_update_attack_area):
+		size_changed.connect(_update_attack_area)
 	area.body_entered.connect(start_breaking)
 
 func start_breaking(_body: Node2D) -> void:

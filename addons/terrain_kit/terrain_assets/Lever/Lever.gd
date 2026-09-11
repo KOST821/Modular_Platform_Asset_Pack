@@ -27,14 +27,13 @@ signal toggle(is_on:bool, lever:Node2D)
 var _is_left:bool = false
 
 @export_category("Settings")
-@export_range(0, 100, 1,"or_greater") var texture_width:int = 32
+@export_range(0, 100, 1,"or_greater", "hide_control", "suffix:px") var texture_width:int = 32
 ## If the sprite is an [AnimatedSprite2D] sets the animation true run.
-@export var animation_play:WAY
+@export var animation_play:WAY = WAY.RIGHT_TO_LEFT
 
 var _switched:bool = false
 
 const TIME:float = 0.27
-var timer:float
 
 func _get_configuration_warnings() -> PackedStringArray:
 	if sprite == null:
@@ -53,7 +52,6 @@ func _get_configuration_warnings() -> PackedStringArray:
 
 func _ready() -> void:
 	set_process(false)
-	timer = TIME
 	match starting_position:
 		"LEFT":
 			_is_left = true
@@ -97,11 +95,5 @@ func _switch(_body:Node2D) -> void:
 	_switched = true
 	_is_left = !_is_left
 	set_correct_collision()
-	set_process(true)
-
-func _process(delta: float) -> void:
-	timer -= delta
-	if timer <= 0.0:
-		_switched = false
-		timer = TIME
-		set_process(false)
+	await get_tree().create_timer(TIME).timeout
+	_switched = false

@@ -1,5 +1,6 @@
 @tool
 @icon("fan.svg")
+## A Prop that pushes a body to a direction.
 extends PropOrHazard
 class_name Fan
 
@@ -21,7 +22,7 @@ enum AIR_DIR \
 ## In which direction the [u]Fan[/u] is pushing the bodies that air is hitting.
 @export var direction_of_air:AIR_DIR = AIR_DIR.UP
 ## Force of the air.
-@export_range(0.0, 5000.0, 10.0, "or_greater", "hide_control") var force: float = 1500.0
+@export_range(0.0, 5000.0, 10.0, "or_greater", "hide_control", "suffix:px/s") var force: float = 1500.0
 ## A value that is reducing the force for objects that have no [b]gravity[/b] (e.g. [Area2D]).
 @export_range(0.001, 1.0, 0.01, "prefer_slider")var non_physics_dampener: float = 0.15 
 

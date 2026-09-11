@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://diub5mlygnsif"]
+
+[ext_resource type="Script" uid="uid://c08hb4cadg135" path="res://addons/terrain_kit/terrain_assets/PropOrHazard/Prop/Prop.gd" id="1_m1xp6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5p6vy"]
+
+[node name="Prop" type="StaticBody2D" unique_id=238295592 node_paths=PackedStringArray("sprite_still", "collision_shape")]
+script = ExtResource("1_m1xp6")
+sprite_still = NodePath("Sprite2D")
+collision_shape = NodePath("CollisionShape2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=996759236]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=383105573]
+shape = SubResource("RectangleShape2D_5p6vy")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btt4o11n3wkra"
-path="res://.godot/imported/tree.svg-4eed48cd84eabc1a57d4172c715b7ab9.ctex"
+uid="uid://dspgfq1fcjovw"
+path="res://.godot/imported/tree_evergreen.svg-7dc3f53d852601292188061057e2b007.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/terrain_kit/terrain_assets/PropOrHazard/tree.svg"
-dest_files=["res://.godot/imported/tree.svg-4eed48cd84eabc1a57d4172c715b7ab9.ctex"]
+source_file="res://addons/terrain_kit/terrain_assets/BaseScripts/tree_evergreen.svg"
+dest_files=["res://.godot/imported/tree_evergreen.svg-7dc3f53d852601292188061057e2b007.ctex"]
 
 [params]
 

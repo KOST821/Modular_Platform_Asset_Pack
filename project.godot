@@ -22,6 +22,12 @@ window/stretch/aspect="expand"
 
 enabled=PackedStringArray("res://addons/terrain_kit/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://addons/terrain_kit/terrain_assets/BaseScripts/": "red"
+}
+
 [input]
 
 left={

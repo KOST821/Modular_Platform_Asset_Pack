@@ -12,7 +12,7 @@ signal released(physical_button:Node2D)
 signal toggle(is_on:bool, physical_button:Node2D)
 
 ## How many pixels should the button go down.
-@export var offset:float = 10.0
+@export_custom(PROPERTY_HINT_NONE, "suffix:px") var offset:float = 10.0
 
 ## The [Area2D] that searces for a person above the button.
 @export var pressing_point: Area2D:
@@ -39,7 +39,7 @@ var _tween:Tween
 
 var started_pos:Vector2
 
-var who_is_pressing:int = 0
+var _bodies_pressing:Array[CollisionObject2D] = []
 
 func _get_configuration_warnings() -> PackedStringArray:
 	if sprite == null:
@@ -65,27 +65,32 @@ func _update_color(color_to_add:Color) -> void:
 	sprite.modulate = color_to_add
 
 func body_enter(body:Node2D) -> void:
-	if is_pressed: 
-		who_is_pressing += 1
+	if body is CollisionObject2D and is_pressed: 
+		_bodies_pressing.append(body)
 		return
-	is_pressed = true
-	who_is_pressing += 1
-	pressed.emit(self)
-	toggle.emit(true, self)
-	if _tween and _tween.is_valid():
-		_tween.kill()
-	_tween = create_tween()
-	_tween.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
-	var target_pos:float = started_pos.y + offset
-	_tween.tween_property(sprite,"position:y",target_pos,1.0)
+	elif body is CollisionObject2D:
+		is_pressed = true
+		_bodies_pressing.append(body)
+		pressed.emit(self)
+		toggle.emit(true, self)
+		if _tween and _tween.is_valid():
+			_tween.kill()
+		_tween = create_tween()
+		_tween.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+		var target_pos:float = started_pos.y + offset
+		_tween.tween_property(sprite,"position:y",target_pos,1.0)
 
 func body_exit(body:Node2D) -> void:
-	if not is_pressed: return
-	who_is_pressing -= 1
-	if who_is_pressing > 0:
+	if not is_pressed:
+		return
+	elif _bodies_pressing.has(body): _bodies_pressing.erase(body)
+	
+	_bodies_pressing = _bodies_pressing.filter(func(b): return is_instance_valid(b))
+	
+	if ! _bodies_pressing.is_empty():
 		return
 	is_pressed = false
-	who_is_pressing = 0
+	_bodies_pressing.clear()
 	released.emit(self)
 	toggle.emit(false, self)
 	if _tween and _tween.is_valid():
